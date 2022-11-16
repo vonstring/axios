@@ -2964,12 +2964,12 @@ const DEFAULT_CONTENT_TYPE = {
  */
 function getDefaultAdapter() {
   let adapter;
-  if (typeof XMLHttpRequest !== 'undefined') {
-    // For browsers use XHR adapter
-    adapter = adapters$1.getAdapter('xhr');
-  } else if (typeof process !== 'undefined' && utils.kindOf(process) === 'process') {
+  if (typeof process !== 'undefined' && utils.kindOf(process) === 'process') {
     // For node use HTTP adapter
     adapter = adapters$1.getAdapter('http');
+  } else if (typeof XMLHttpRequest !== 'undefined') {
+    // For browsers use XHR adapter
+    adapter = adapters$1.getAdapter('xhr');
   }
   return adapter;
 }
